@@ -31,5 +31,10 @@ class Persona():
         return self.__genero
     def set_genero(self,genero):
         self.__genero = genero
-    ##
-    
+        
+    def mostrar_informacion(self):
+        print(f"Nombre : {self.__nombre} {self.__apellido}")
+        print(f"Rut: {self.__rut}")
+        print(f"Celular : {self.__celular}")
+        print(f"correo : {self.__correo_electronico}")
+        print(f"Genero : {self.__genero}")
