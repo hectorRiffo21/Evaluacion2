@@ -1,5 +1,5 @@
-import bcrypt
 from empleado import Empleado
+import bcrypt
 
 class GestorEmpleado:
     def __init__(self):
@@ -24,49 +24,29 @@ class GestorEmpleado:
         if not empleado:
             print("usuarion no encontrado")
             return None
-        if empleado.verificar_clave(clave,bcrypt):
-            print(f"Bienvenido, {empleado.get_nombre()}")
+        if empleado.verificar_clave(clave):
+            print(f"Bienvenido, {empleado.get_nombre()} {empleado.get_apellido()}.")
             return empleado
         print("contraseña incorrecta")
         return None
 
-
-
-    def iniciar_sesion(self):
-        print("INICIO DE SESION")
-        usuario = input("nombre de usuario: ")
-        clave = input("Contraseña : ")
-
-        for emp in self.__empleados:
-            if emp.get_nombre_usuario() == usuario and emp.get_clave() == clave:
-                print(f"\n bienvenido {emp.get_nombre()} ({emp.get_cargo_trabajo()})")
-                return emp
-            
-        print("usuario no encontrado.")
-        return None
-    
     def mostrar_empleados(self):
-        print("LIsta empleados")
         if not self.__empleados:
-            print("No hay empleados registrados.")
+            print("No hay empleados registrados")
+            return
+        for i, emp in enumerate(self.__empleados.values(), start=1):
+            print(f"{i}. Usuario: {emp.get_nombre_usuario()}| Nombre: {emp.get_nombre()} {emp.get_apellido()} | Cargo: {emp.get_cargo_trabajo()}")
+
+
+
+    def eliminar_empleado(self, nombre_usuario):
+        if nombre_usuario in self.__empleados:
+            confirmar = input(f"¿Seguro que desea eliminar al empleado '{nombre_usuario}'? [s/n]: ").lower()
+            if confirmar == "s":
+                del self.__empleados[nombre_usuario]
+                print("Empleado eliminado correctamente.")
+            else:
+                print("Operación cancelada.")
         else:
-            for i, emp in enumerate(self.__empleados, start=1):
-                print(f"{i}. {emp}")
-
-    def eliminar_empleado(self):
-        print("Eliminar empleado")
-        usuario= input("Ingresar nombre de usuario del empleado a eliminar : ")
-
-        for emp in self.__empleados:
-            if emp.get_nombre_usuario() == usuario:
-                confirmar = input(f"seguro que desea eliminar a '{emp.get_nombre()}' (s/n) : ").lower()
-
-                if confirmar == "s":
-                    self.__empleados.remove(emp)
-                    print("Empleado eliminado correctamente")
-                else:
-                    print("operacion cancelada")
-                return
-        print("no se encontro al empleado con ese usuario")
-
+            print("Empleado no encontrado.")
  
