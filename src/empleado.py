@@ -20,7 +20,7 @@ class Empleado(Persona):
     def set_cargo_trabajo(self,cargo_trabajo):
         self.__cargo_trabajo = cargo_trabajo
  
-    def verificar_clave(self,clave,bcrypt):
+    def verificar_clave(self,clave):
         return bcrypt.checkpw(clave.encode('utf-8'), self.__clave_hash)
     
     def mostrar_informacion_empleado(self):
