@@ -4,28 +4,14 @@ from producto import Producto
 from inventario import Inventario
 from gestor_empleado import GestorEmpleado
 
-def menu_principal():
-    print("---SISTEMA DE GESTION DE EMPLEADOS---")
-    print("1. Iniciar Sesion")
-    print("2. Registrar Empleado")
-    print("3. Mostrar Empleados")
-    print("4. Eliminar Empleado")
-    print("5. Salir")
 
-def menu_inventario():
-    print("Menu inventaario")
-    print("1.registrar producto")
-    print("2.mostrar productos")
-    print("3. actualizar stock")
-    print("4. buscar producto")
-    print("5. eliminar producto")
-    print("6. volver al menu principal")
+
 
 def main():
     gestor = GestorEmpleado()
     inventario = Inventario()
     while True:
-        menu_principal()
+        h.menu_principal()
         opcion = input("seleccione una opcion : ").strip()
         if opcion =="1":
             usuario = input("Nombre de usuario : ")
@@ -36,13 +22,13 @@ def main():
                 print(f"\nBienvenido {empleado.get_nombre()} ({empleado.get_cargo_trabajo()})")
                 empleado.mostrar_informacion_empleado()
                 while True:
-                    menu_inventario()
+                    h.menu_inventario()
                     opcion_inventario=input("seleccione opcion : ")
                     if opcion_inventario=="1":
                         nombre=input("nombre del producto: ")
                         codigo=input("Codigo Unico del producto: ")
                         categoria=input("Categoria: ")
-                        stock=input("Stock: ")
+                        stock=int(input("Stock: "))
                         stock_minimo=int(input("Stock minimo: "))
                         stock_maximo=int(input("stock maximo: "))
                         codigo_marca=input("codigo de marca: ")
