@@ -1,5 +1,5 @@
 class Producto():
-    def __init__(self, nombre = str,codigo_marca=str,codigo_unidad=str,codigo=str,stock=int,stock_minimo=int,stock_maximo=int,categoria=str,atributos_extra=dict):
+    def __init__(self, nombre,codigo_marca,codigo_unidad,codigo,stock,stock_minimo,stock_maximo,categoria):
         self.__nombre = nombre
         self.__codigo_marca = codigo_marca
         self.__codigo_unidad = codigo_unidad
@@ -8,7 +8,6 @@ class Producto():
         self.__stock_minimo = stock_minimo
         self.__stock_maximo = stock_maximo
         self.__categoria = categoria
-        self.__atributos_extra = atributos_extra
 
     def get_nombre(self):
         return self.__nombre
@@ -29,40 +28,35 @@ class Producto():
     def get_stock(self):
         return self.__stock
     def set_stock(self, stock):
-        if stock<0:
-            raise ValueError("Stock no puede ser negativo")
         self.__stock = stock
-
     def get_stock_minimo(self):
         return self.__stock_minimo
     def set_stock_minimo(self,stock_minimo):
-        if stock_minimo<0:
-            raise ValueError("Stock minimo no puede ser negativo")
         self.__stock_minimo = stock_minimo
-
     def get_stock_maximo(self):
         return self.__stock_maximo
     def set_stock_maximo(self,stock_maximo):
-        if stock_maximo<self.__stock_minimo:
-            raise ValueError("El Stock Maximo no puede ser Menor que el minimo")
         self.__stock_maximo = stock_maximo
-
     def get_categoria(self):
         return self.__categoria
     def set_categoria(self,categoria):
         self.__categoria = categoria
-    def get_atributos_extra(self):
-        return self.__atributos_extra
-    def set_atributos_extra(self,atributos_extra):
-        self.__atributos_extra = atributos_extra
-
-
 
     def actualizar_stock(self, cantidad):
         nuevo_stock = self.__stock + cantidad
         if nuevo_stock < 0:
             raise ValueError(f"No hay suficiente stock para retirar {abs(cantidad)} unidades.")
         self.__stock = nuevo_stock
+
+    def datos_diccionario(self):
+         return {
+        "nombre": self.__nombre,
+        "codigo": self.__codigo,
+        "categoria": self.__categoria,
+        "stock": self.__stock,
+        "stock_minimo": self.__stock_minimo,
+        "stock_maximo": self.__stock_maximo
+    }
 
     def __str__(self):
         return (f"Producto: {self.__nombre} | Código: {self.__codigo} | "
