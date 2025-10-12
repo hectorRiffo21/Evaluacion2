@@ -8,13 +8,23 @@ class GestorEmpleado:
     def get_empleado(self):
         return self.__empleados
 
-    def registrar_empleado(self,nombre,apellido,rut, celular,correo_electronico,genero,nombre_usuario,clave,cargo_trabajo):
+    def registrar_empleado(self):
+        print("Registrar nuevo empleado")
+        nombre= input("Nombre:")
+        apellido=input("Apellido:")
+        rut=input("Rut:")
+        celular=input("Celular:")
+        correo_electronico=input("Correo electronico:")
+        genero=input("Genero:")
+        nombre_usuario=input("Nombre de usuario: ")
+        clave=input("clave:")
+        cargo_trabajo=input("cargo:")
         if nombre_usuario in self.__empleados:
             print("YA existe este usuario")
             return False
         clave_hash = bcrypt.hashpw(clave.encode('utf-8'), bcrypt.gensalt())
-        nuevo = Empleado(nombre,apellido,rut,celular,correo_electronico,genero,nombre_usuario,clave_hash,cargo_trabajo)
-        self.__empleados[nombre_usuario] = nuevo
+        nuevo_empleado = Empleado(nombre,apellido,rut,celular,correo_electronico,genero,nombre_usuario,clave_hash,cargo_trabajo)
+        self.__empleados[nombre_usuario] = nuevo_empleado
         print("EMpleado registrado correctamente")
         return True
     
@@ -39,7 +49,8 @@ class GestorEmpleado:
 
 
 
-    def eliminar_empleado(self, nombre_usuario):
+    def eliminar_empleado(self):
+        nombre_usuario = input("Nombre de usuario del empleado a eliminar : ")
         if nombre_usuario in self.__empleados:
             confirmar = input(f"¿Seguro que desea eliminar al empleado '{nombre_usuario}'? [s/n]: ").lower()
             if confirmar == "s":
