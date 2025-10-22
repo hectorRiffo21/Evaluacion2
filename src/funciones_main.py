@@ -1,6 +1,8 @@
 empleados = {}
 usuarios = {}
 
+
+#Funcion DE interfaz menu principal
 def menu_principal():
     print("---------------------------------")
     print("--SISTEMA DE GESTION DE EMPLEADOS--")
@@ -10,7 +12,7 @@ def menu_principal():
     print("4. Eliminar Empleado")
     print("5. Salir")
 
-
+#Funcion de interfaz menu inventario
 def menu_inventario():
     print("---------------------------------")
     print("--Menu Inventario--")
@@ -24,6 +26,7 @@ def menu_inventario():
     print("8. Actualizar Limites De Stock")
     print("9. Volver Al Menu Principal")
 
+#Funcion De interfaz menu movimientos
 def menu_movimientos():
     print("\n--- Menú de Movimientos ---")
     print("1. Ver todos los movimientos")
