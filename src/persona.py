@@ -7,6 +7,7 @@ class Persona():
         self.__correo_electronico = correo_electronico
         self.__genero = genero
 
+    #metodos gets y sets
     def get_nombre(self):
         return self.__nombre
     def set_nombre(self,nombre):
@@ -32,6 +33,7 @@ class Persona():
     def set_genero(self,genero):
         self.__genero = genero
         
+    #metodo para mostrar informacion en consola
     def mostrar_informacion(self):
         print(f"Nombre : {self.__nombre} {self.__apellido}")
         print(f"Rut: {self.__rut}")
