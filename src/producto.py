@@ -8,7 +8,8 @@ class Producto():
         self.__categoria = categoria
         self.__precio = precio
         self.__valor_total = self.calcular_valor_total()
-
+        
+    #metodos gets y sets
     def get_nombre(self):
         return self.__nombre
     def set_nombre(self,nombre):
