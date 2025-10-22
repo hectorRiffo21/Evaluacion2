@@ -9,8 +9,6 @@ class Empleado(Persona):
         self.__cargo_trabajo= cargo_trabajo
     def get_nombre_usuario(self):
         return self.__nombre_usuario
-    def set_nombre_usuario(self,nombre_usuario):
-        self.__nombre_usuario = nombre_usuario
     def get_clave_hash(self):
         return self.__clave_hash
     def set_clave_hash(self,clave_hash):
