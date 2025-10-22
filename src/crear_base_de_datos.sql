@@ -43,3 +43,8 @@ CREATE TABLE empleados (
     clave VARCHAR(MAX),  -- guardará hash de bcrypt
     cargo_trabajo VARCHAR(50)
 );
+
+
+SELECT * FROM empleados;
+SELECT * FROM movimientos;
+SELECT * FROM productos;
