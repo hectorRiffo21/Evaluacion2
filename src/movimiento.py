@@ -1,12 +1,14 @@
 import uuid
 from datetime import datetime
 
+#clase para los movimientos de productos y/o transacciones
 class Movimiento():
+    #diccionario para almacenamiento en memoria
     movimientos_registrados = {} 
     #[]
 
     def __init__(self,codigo_producto,usuario_responsable,tipo,cantidad,motivo,stock_antes,stock_despues, monto_total):
-        self.__id_movimiento = str(uuid.uuid4())
+        self.__id_movimiento = str(uuid.uuid4())#id unico para movimiento
         self.__codigo_producto = codigo_producto
         self.__usuario_responsable = usuario_responsable
         self.__tipo = tipo
@@ -17,7 +19,7 @@ class Movimiento():
         self.__stock_despues = stock_despues
         self.__monto_total = monto_total
         
-
+    #gets y sets
     def get_id_movimiento(self):
         return self.__id_movimiento
     def get_codigo_producto(self):
@@ -54,7 +56,7 @@ class Movimiento():
         self.__monto_total = monto_total
  
 
-
+    #impresion en consola por medio del metodo
     def __str__(self):
         return (f"[{self.__fecha}] {self.__tipo} | Codigo Producto: {self.__codigo_producto} | "
                 f"Empleado: {self.__usuario_responsable} | Cantidad: {self.__cantidad} | "
